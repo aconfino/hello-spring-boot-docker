@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - mvn install dockerfile:build
+      
+artifacts:
+  files:
+    - target/*.jar
+    - target/surefire-reports/**
+    - target/failsafe-reports/**
+    - target/sonar/**
+  discard-paths: no
