@@ -1,14 +1,20 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --region us-east-1)
   build:
     commands:
-      - mvn install dockerfile:build
-      
-artifacts:
-  files:
-    - target/*.jar
-    - target/surefire-reports/**
-    - target/failsafe-reports/**
-    - target/sonar/**
-  discard-paths: no
+      - echo Build started on `date`
+      - echo Begining Maven build
+      - mvn package
+      - echo Building the Docker image...   
+      - docker build -t container-poc .	  
+      - docker tag container-poc:latest 406918538940.dkr.ecr.us-east-1.amazonaws.com/container-poc:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 406918538940.dkr.ecr.us-east-1.amazonaws.com/container-poc:latest
