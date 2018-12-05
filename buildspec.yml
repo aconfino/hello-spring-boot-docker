@@ -8,6 +8,7 @@ phases:
       
 artifacts:
   files:
+    - target/dependency/**
     - target/*.jar
     - target/surefire-reports/**
     - target/failsafe-reports/**
