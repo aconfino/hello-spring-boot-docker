@@ -9,3 +9,10 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      
+artifacts:
+  files:
+    - target/*.jar
+    - target/surefire-reports/**
+    - target/failsafe-reports/**
+  discard-paths: no
