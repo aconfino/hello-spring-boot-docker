@@ -11,8 +11,8 @@ phases:
       
 artifacts:
   files:
-    - target/dependency/**
+    - target/dependency/**/*
     - target/*.jar
-    - target/surefire-reports/**
-    - target/failsafe-reports/**
+    - target/surefire-reports/**/*
+    - target/failsafe-reports/**/*
   discard-paths: no
