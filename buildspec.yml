@@ -11,6 +11,7 @@ phases:
       
 artifacts:
   files:
+    - Dockerfile
     - target/dependency/**/*
     - target/*.jar
     - target/surefire-reports/**/*
