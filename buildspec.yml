@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn package
-  post-build:
+  post_build:
     commands:
       - ls -ltr target/dependency
       
